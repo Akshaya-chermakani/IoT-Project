@@ -1,0 +1,25 @@
+  
+const int ledpin=10;  
+const int flamepin=A1; 
+const int buzpin=11; 
+const int threshold=200; 
+int flamesensvalue=0;   
+void setup() { 
+Serial.begin(9600); 
+pinMode(ledpin,OUTPUT); 
+pinMode(flamepin,INPUT); 
+25 
+ 
+pinMode(buzpin,OUTPUT); 
+} 
+void loop() { 
+flamesensvalue=analogRead(flamepin);  
+if (flamesensvalue<=threshold) { 
+digitalWrite(ledpin,HIGH); 
+tone(buzpin,100); 
+delay(1000);  
+} 
+else{ 
+digitalWrite(ledpin,LOW);  
+noTone(buzpin); 
+}}  
